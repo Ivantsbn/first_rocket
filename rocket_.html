@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start rocket</title>
+    <style type="text/css">
+        .center {
+            width:  30%;
+            height: 600px;
+            margin:  0 auto;
+        }
+
+        img {
+            width: 208px;
+            height: 242px;
+            position: absolute;
+            top: 400px;
+            transition:  top 1.6s ease-in;
+        }
+
+        button {
+            position: relative;
+            top: 500px;
+            left: 260px;
+            margin: 3px;
+        }
+
+        .btn-style {
+            box-shadow: 3px 4px 0px 0px; color: #898989;
+            background: linear-gradient(to bottom, color #ededed 5%, color #bab1ba);
+            background-color: #ededed;
+            border-radius: 15px;
+            border: 1px solid #d6bcd6;
+            display: inline-block;
+            cursor: pointer;
+            color: #3a8a9e;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 17px;
+            padding: 7px 25px;
+            text-decoration: none;
+            text-shadow: 0px 1px 0px color #e1e2ed;
+        }
+
+        .btn-style:hover {
+            background: linear-gradient(to bottom, color #bab1ba 5%, color #ededed 100%);
+            background-color: #bab1ba;
+        }
+
+        .start {
+            top: -300px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="center">
+        <img src="rocket.png">
+        <button class="btn-style home-work">START</button>
+        <button class="btn-style boom">BOOM</button>
+    </div>
+
+    <script type="text/javascript">
+
+        let rocket = document.querySelector('img');
+        let buttHW = document.querySelector('.home-work');
+        let buttJoke = document.querySelector('.boom');
+        let explosion = ['a1.png', 'a2.png', 'a3.png', 'a4.png', 'a5.png', 'a6.png', 'a7.png']
+
+        buttHW.addEventListener('click', function() {
+            rocket.classList.add('start');
+        })
+
+        buttJoke.addEventListener('click', function(){
+            let image = 0;
+            let animation = setInterval(function() {
+                rocket.src = explosion[image];
+                image += 1;
+                if (image === 8) {
+                    clearInterval(animation);
+                    rocket.style.display = 'none';
+                }
+            }, 60);
+        })
+
+    </script>
+</body>
+</html>

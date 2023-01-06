@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<style type="text/css">
+		
+		.center {
+			width: 30%;
+			height: 600px;
+			margin: 0 auto;
+		}
+
+		img {
+			width: 208px;
+			height: 242px;
+			position: absolute;
+			top: 400px;
+			transition: top 1.5s ease-in;
+		}
+
+		button {
+			position: relative;
+			top: 500px;
+			left: 260px;
+			margin: 3px;
+		}
+
+		.btn-style {
+			box-shadow: 3px 4px 0px 0px #899599;
+			background:linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+			background-color:#ededed;
+			border-radius:15px;
+			border:1px solid #d6bcd6;
+			display:inline-block;
+			cursor:pointer;
+			color:#3a8a9e;
+			font-family:Arial;
+			font-size:17px;
+			padding:7px 25px;
+			text-decoration:none;
+			text-shadow:0px 1px 0px #e1e2ed;
+		}
+
+		.btn-style:hover {
+			background:linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+			background-color:#bab1ba;
+		}
+
+
+		.start {
+			top: -300px;
+		}
+
+
+
+	</style>
+</head>
+<body>
+	<div class="center">
+		<img src="img/rocket.png">
+		<button class="btn-style home-work" >ŠTART</button>
+		<button class="btn-style joke">JOKE</button>
+	</div>
+
+	<script type="text/javascript">
+		
+		let rocket = document.querySelector('img');
+		let buttHW = document.querySelector('.home-work');
+		let buttJoke = document.querySelector('.joke');
+		let explosion = ["img/a1.png", "img/a2.png", "img/a3.png", "img/a4.png", "img/a5.png", "img/a6.png", "img/a7.png"]
+
+		buttHW.addEventListener("click", function() {
+			rocket.classList.add('start');
+		})
+
+		buttJoke.addEventListener("click", function() {
+			let image = 0;
+			let animation = setInterval(function(){
+				rocket.src = explosion[image];
+				image += 1;
+				if (image === 8){
+					clearInterval(animation);
+					rocket.style.display = "none";
+				}
+
+			}, 60)
+		})
+
+
+	</script>
+
+</body>
+</html>
